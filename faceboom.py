@@ -1,6 +1,6 @@
 #!/usr/bin/python
 
-import socket, sys, os, re, random, optparse, time
+import socket, sys, os, re, random, optparse, time, io
 if sys.version_info.major <= 2:import httplib
 else:import http.client as httplib
 
@@ -240,7 +240,7 @@ def Main():
         if single_passwd:
             passwords = [single_passwd]
         else:
-            with open(wordlist, 'r', errors='replace') as f:
+            with io.open(wordlist, 'r', errors='replace') as f:
                 passwords = f.readlines()
         for passwd in passwords:
                 passwd = passwd.strip()
